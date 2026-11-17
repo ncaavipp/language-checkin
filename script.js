@@ -1,3 +1,4 @@
+// Paste your Google Apps Script Web App URL here
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwEGj58P9NeIUeW3wxSa9E607BwL42HxKnIKRjI4ndxsR2Mxwd1cXozWn3EG1PVeD5fbg/exec";
 
 document.getElementById('checkinForm').addEventListener('submit', function(e) {
