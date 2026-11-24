@@ -10,7 +10,7 @@ document.getElementById('checkinForm').addEventListener('submit', function(e) {
 
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
-    const pin = document.getElementById('pin').value.trim();
+    const pin = document.getElementById('pin') ? document.getElementById('pin').value.trim() : "";
     const message = document.getElementById('message').value.trim();
 
     btn.textContent = "そうしんちゅう... (Sending...)";
@@ -19,7 +19,7 @@ document.getElementById('checkinForm').addEventListener('submit', function(e) {
     responseBox.style.background = "#eff6ff";
     responseBox.style.borderColor = "#bfdbfe";
     responseBox.style.color = "#1e40af";
-    historyList.innerHTML = "";
+    if (historyList) historyList.innerHTML = "";
 
     const formData = new URLSearchParams();
     formData.append("name", name);
@@ -35,10 +35,12 @@ document.getElementById('checkinForm').addEventListener('submit', function(e) {
     .then(data => {
         if (data.status === "success") {
             responseBox.style.display = "block";
-            responseBox.innerHTML = "<strong>うけつけました！(Check-in Recorded)</strong> — 最新のメッセージが一番上に表示されます。";
+            responseBox.innerHTML = "<strong>うけつけました！(Check-in Recorded)</strong>";
             document.getElementById('message').value = "";
 
-            renderHistory(data.history || []);
+            if (Array.isArray(data.history)) {
+                renderHistory(data.history);
+            }
         } else {
             throw new Error(data.message || "Unknown error");
         }
