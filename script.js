@@ -72,8 +72,8 @@ function renderHistory(items) {
             : "";
 
         const replyHtml = item.pending
-            ? "<div class='history-waiting'>せんせいがかくにんちゅうです。(Awaiting instructor approval...)</div>"
-            : "<div class='history-reply'><strong>せんせい:</strong> " + escapeText(item.reply) + "</div>";
+            ? "<div class='history-waiting'>せんせいがかくにん中です。(Awaiting instructor replyval...)</div>"
+            : "<div class='history-reply'><strong>先生:</strong> " + escapeText(item.reply) + "</div>";
 
         card.innerHTML =
             "<div class='history-date'>" + escapeText(item.date) + badge + "</div>" +
