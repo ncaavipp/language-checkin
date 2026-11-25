@@ -72,7 +72,7 @@ function renderHistory(items) {
             : "";
 
         const replyHtml = item.pending
-            ? "<div class='history-waiting'>せんせいがかくにん中です。(Awaiting instructor replyval...)</div>"
+            ? "<div class='history-waiting'>かくにん中です。(Awaiting instructor's reply...)</div>"
             : "<div class='history-reply'><strong>先生:</strong> " + escapeText(item.reply) + "</div>";
 
         card.innerHTML =
